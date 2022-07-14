@@ -22,7 +22,14 @@
         'TN1': 6, 'TN2': 6, 'TN3': 6, 'TN4': 6, 'TN5': 6, 'TS1': 6, 'TS2': 6, 'TS3': 6, 'TS4': 6, 'TS5': 6 // Torres
     };
     let customPriorities =
-        { 'F': 1, 'G': 2, 'H': 3, 'I': 4, 'J': 5, 'K': 6, 'LD': 6, 'LIC': 6, 'LID': 6, 'LII': 6, 'LPC': 6, 'LPD': 6, 'LPI': 6, 'LV': 6, 'MC': 6, 'MD': 6, 'MI': 6, 'P': 6, 'SCI': 1, 'SAD': 1, 'SDI': -4 };
+    {
+        'F': 2, 'G': 2, 'H': 2, 'I': 2, 'J': 2, // Platea alta
+        'K': 1,
+        'LD': 6, 'LIC': 6,  'LII': 6, 'LPC': 6, 'LPD': 6, 'LV': 6, // Platea baja 'LID': 6, 'LPI': 6, 
+        'MC': 6, 'MD': 6,  'P': 6, 'SMV': 6, // Codo sur 'MI': 6,
+        'SAC': 3, 'SAD': 3, 'SAI': 3, 'SBC': 3, 'SBD': 3, 'SBI': 3, 'SCD': 4, 'SCI': 4, 'SDD': 4, 'SDI': 4, // Media
+        'TN1': 6, 'TN2': 6, 'TN3': 6, 'TN4': 6, 'TN5': 6, 'TS1': 6, 'TS2': 6, 'TS3': 6, 'TS4': 6, 'TS5': 6 // Torres
+    };
     let sortedBy = customPriorities;
     let prioritizer = function (a, b) {
         if (sortedBy[a.id] > sortedBy[b.id]) {
@@ -67,7 +74,7 @@
                     url = url.substring(0, url.indexOf("?"));
                 }
                 let newUrl = url.replace("comprar_plano_general", "comprar_plano_asiento") + window.location.search + "&esNid=" + nid;
-
+                console.log("Redirecting to "+freeSection[0].getAttribute('id'));
                 window.location.href = newUrl;
             }
         }, 300);
